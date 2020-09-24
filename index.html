@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./pages/alunos-form.html">Alunos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Projetos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main id="destino" class=" d-flex justify-content-center">
+
+    </main>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<script src="router.js"></script>
+
+<script>
+    const setValidation = (form) => {
+        form && form.addEventListener('submit', event => {
+            // if (!form.checkValidity()){
+                event.preventDefault()
+                event.stopPropagation();
+            // }
+
+            form.classList.add('was-validated');
+
+            if (form.checkValidity()) {
+                const url = form.getAttribute('url')
+                const method = form.getAttribute('method')
+
+                const getData = () => {
+
+                    const inputs = document.querySelectorAll('input')
+
+                    const data = {}
+
+                    inputs.forEach((input) => data[input.getAttribute['id']] = input.value)
+                    console.log(data)
+                    return data
+                }
+
+                ajaxRequest({
+                    url,
+                    method,
+                    success: response => {
+                        alert('Salvo com Sucesso!')
+                    },
+                    error: response => {
+                        alert(response)
+                    },
+                    data: {teste: 123}
+                })
+            }
+        }, false)
+    }
+
+    const getPage = (url) => {
+        ajaxRequest({
+            method: 'get',
+            url: url,
+            success: response => {
+                document.getElementById('destino').innerHTML = response;
+                const form = document.getElementsByClassName('needs-validation').item(0)
+
+                setValidation(form)
+            },
+            error: response => {
+                alert(response)
+            }
+        })
+
+
+    }
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const url = link.href
+
+        link.onclick = (event) => {
+            event.preventDefault()
+            getPage(url)
+        }
+    })
+
+</script>
+
+<style>
+    .aluno-form {
+        width: 300px;
+        padding: 20px;
+        border-radius: 20px;
+        background: #111;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+        color: #fff;
+    }
+
+    .aluno-form input {
+        display: block;
+        width: 100%;
+        padding: 0 10px;
+        height: 40px;
+        box-sizing: border-box;
+        background: #111;
+        outline: none;
+        border: none;
+        font-family: "montserrat", sans-serif;
+    }
+
+    .aluno-form input:focus {
+        border-color: #111;
+        background: #111;
+        color: #fff;
+    }
+
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+        color: #fff;
+        -webkit-text-fill-color: #111;
+        -webkit-box-shadow: 0 0 0px 1000px #111 inset;
+        -webkit-text-fill-color: #fff !important;
+    }
+
+    .campo-form {
+        margin-top: 20px;
+    }
+
+    .txtb {
+        background: rgba(255, 255, 255, .1);
+        border-radius: 6px;
+    }
+
+    button[type='submit'] {
+        margin-top: 30px;
+    }
+</style>
+
+</html>
