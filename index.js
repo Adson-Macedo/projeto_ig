@@ -21,9 +21,9 @@ const storage = {
         return this.projetos.filter(pr => pr.id === parseInt(idProjeto))[0]
     },
     criarAluno(aluno){
+        console.log(aluno)
         const novoAluno = {id: this.gerarIdAluno(), ...aluno}
         this.alunos.push(novoAluno)
-        console.log(novoAluno)
         return novoAluno
     },
     criarProjeto(projeto){
@@ -38,6 +38,12 @@ const storage = {
         
         projeto.alunos.push(aluno)
         
+        return projeto
+    },
+    adicionarAlunosAoProjeto(alunos, idProjeto) {
+        const projeto = this.encontrarProjetoPeloId(idProjeto)
+        alunos.map(idAluno => this.encontrarAlunoPeloId(idAluno))
+                .forEach(aluno => projeto.alunos.push(aluno))
         return projeto
     },
     getAlunosDoProjeto(idProjeto) {
@@ -72,6 +78,6 @@ app.get('/projetos/:id/alunos', (req, res) =>
     res.send(storage.getAlunosDoProjeto(req.params.id)))
 
 app.post('/projetos/:id/alunos', (req, res) => 
-    res.send(storage.adicionarAlunoAoProjeto(req.body.idAluno, req.params.id)))
+    res.send(storage.adicionarAlunosAoProjeto(req.body.idAlunos, req.params.id)))
 
 app.listen(3000, () => console.log('Servidor Executando...'))

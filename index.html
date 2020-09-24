@@ -41,15 +41,21 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 
-<script src="router.js"></script>
+<script src="main.js"></script>
 
-<script>
+<!-- <script>
+    const getData = () => {
+        const inputs = Array.from(document.querySelectorAll('input'))
+        const data = {}
+
+        inputs.forEach((input) => data[input.getAttribute('id')] = input.value)
+        return data
+    }
+
     const setValidation = (form) => {
         form && form.addEventListener('submit', event => {
-            // if (!form.checkValidity()){
-                event.preventDefault()
-                event.stopPropagation();
-            // }
+            event.preventDefault()
+            event.stopPropagation();
 
             form.classList.add('was-validated');
 
@@ -57,51 +63,24 @@
                 const url = form.getAttribute('url')
                 const method = form.getAttribute('method')
 
-                const getData = () => {
-
-                    const inputs = document.querySelectorAll('input')
-
-                    const data = {}
-
-                    inputs.forEach((input) => data[input.getAttribute['id']] = input.value)
-                    console.log(data)
-                    return data
-                }
-
-                ajaxRequest({
-                    url,
-                    method,
-                    success: response => {
-                        alert('Salvo com Sucesso!')
-                    },
-                    error: response => {
-                        alert(response)
-                    },
-                    data: {teste: 123}
+                $.ajax({
+                    method, 
+                    url, 
+                    data: getData(), 
                 })
             }
         }, false)
     }
 
     const getPage = (url) => {
-        ajaxRequest({
-            method: 'get',
-            url: url,
-            success: response => {
-                document.getElementById('destino').innerHTML = response;
-                const form = document.getElementsByClassName('needs-validation').item(0)
-
-                setValidation(form)
-            },
-            error: response => {
-                alert(response)
-            }
+        $.get(url, response => {
+            $('#destino').html(response);
+            const form = $('.needs-validation').get(0)
+            form && setValidation(form)
         })
-
-
     }
 
-    document.querySelectorAll('.nav-link').forEach(link => {
+    $('.nav-link').toArray().forEach(link => {
         const url = link.href
 
         link.onclick = (event) => {
@@ -110,7 +89,7 @@
         }
     })
 
-</script>
+</script> -->
 
 <style>
     .aluno-form {
