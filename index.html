@@ -15,7 +15,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Gerenciador de Projetos</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -46,54 +46,6 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 
 <script src="main.js"></script>
-
-<!-- <script>
-    const getData = () => {
-        const inputs = Array.from(document.querySelectorAll('input'))
-        const data = {}
-
-        inputs.forEach((input) => data[input.getAttribute('id')] = input.value)
-        return data
-    }
-
-    const setValidation = (form) => {
-        form && form.addEventListener('submit', event => {
-            event.preventDefault()
-            event.stopPropagation();
-
-            form.classList.add('was-validated');
-
-            if (form.checkValidity()) {
-                const url = form.getAttribute('url')
-                const method = form.getAttribute('method')
-
-                $.ajax({
-                    method, 
-                    url, 
-                    data: getData(), 
-                })
-            }
-        }, false)
-    }
-
-    const getPage = (url) => {
-        $.get(url, response => {
-            $('#destino').html(response);
-            const form = $('.needs-validation').get(0)
-            form && setValidation(form)
-        })
-    }
-
-    $('.nav-link').toArray().forEach(link => {
-        const url = link.href
-
-        link.onclick = (event) => {
-            event.preventDefault()
-            getPage(url)
-        }
-    })
-
-</script> -->
 
 <style>
     body {

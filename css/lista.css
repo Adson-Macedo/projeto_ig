@@ -48,12 +48,16 @@ table {
     transition: .8;
 }
 
-.btn-acoes:hover {
+.btn-acoes button:hover {
     transform: scale(0.96);
 }
   
 .btn-remover {
     background-color: #d9534f;
+}
+
+.btn-lista {
+    background-color: #644fd9;
 }
 
 .btn-adicionar {
