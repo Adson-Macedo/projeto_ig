@@ -1,0 +1,65 @@
+.lista h1 {
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+    font-family: 'Permanent Marker', cursive;
+    color: #fff;
+}
+
+.lista {
+    font-family: "montserrat", sans-serif;
+    font-weight: bold;
+    width: 80vw;
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 20px;
+    background: #2d3251;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    color: #aaa;
+}
+
+table th {
+    color: #fff;
+}
+
+.table {
+    color: #aaa;
+}
+
+.table tbody tr:hover {
+    color: #fff;
+}
+
+table {
+    text-align: center;
+}
+
+.btn-acoes button{
+    border: none;
+    color: white;
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: 0;
+    transition: .8;
+}
+
+.btn-acoes:hover {
+    transform: scale(0.96);
+}
+  
+.btn-remover {
+    background-color: #d9534f;
+}
+
+.btn-adicionar {
+    background-color: #349e34;
+}
+
+#tabela-projetos button {
+    font-weight: bold;
+}

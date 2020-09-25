@@ -1,12 +1,11 @@
-.aluno-form h1, .projeto-form h1 {
+.formulario h1 {
     font-size: 1.6rem;
     margin-bottom: 20px;
     font-family: 'Permanent Marker', cursive;
     color: #fff;
 }
 
-.aluno-form,
-.projeto-form {
+.formulario {
     font-family: 'Roboto', cursive;
     font-weight: bold;
     margin-top: 25px;
@@ -22,8 +21,7 @@
     color: #fff;
 }
 
-.aluno-form input,
-.projeto-form input {
+.formulario input {
     display: block;
     border-radius: 30px;
     width: 100%;
@@ -37,8 +35,7 @@
     color: #bbb;
 }
 
-.aluno-form input:focus,
-.projeto-form input:focus {
+.formulario input:focus {
     background: rgba(255, 255, 255, .1);
     color: #bbb;
 }
@@ -55,6 +52,9 @@
 button[type='submit'] {
     height: 40px;
     width: 80%;
+    background: #349e34;
+    font-size: 1.2rem;
+    font-weight: bold;
     border-radius: 20px;
     margin-top: 30px;
     transition: 0.8s;
