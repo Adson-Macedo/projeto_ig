@@ -64,8 +64,15 @@ app.get('/alunos/:id', (req, res) =>
 app.post('/alunos', (req, res) => 
     res.send(storage.criarAluno(req.body)))
 
-app.get('/projetos', (req, res) => 
-    res.send(storage.projetos))
+app.get('/projetos', (req, res) => {
+    const projetos = [...storage.projetos]
+    
+    projetos.map(projeto => {
+        delete projeto.alunos
+    })
+    
+    res.send(projetos)
+})
 
 app.get('/projetos/:id', (req, res) => 
     res.send(storage.encontrarProjetoPeloId(req.params.id)))
