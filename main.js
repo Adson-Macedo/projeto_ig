@@ -30,8 +30,27 @@ const getPage = (url) => {
     $.get(url, response => {
         $('#destino').html(response);
         const form = $('.needs-validation').get(0)
+        const tabela = $('.table').get(0)
+
         form && setValidation(form)
+        tabela && loadData(tabela)
     })
+}
+
+const toRow = (item) => {
+    return Object.values(item)
+        .reduce((acc, value) => acc + `<td>${value}</td>`, '<tr>' ) + '</tr>'
+}
+
+const loadData = (tabela) => {
+    const url = tabela.getAttribute('url')
+    const tBody = $('tbody')
+    tBody.html('')
+    $.get(url)
+        .then(items => items.map(item => toRow(item)))
+        .then(rows => rows.forEach(row => {
+            tBody.append(row)
+        }))
 }
 
 $('.nav-link').toArray().forEach(link => {
@@ -42,3 +61,4 @@ $('.nav-link').toArray().forEach(link => {
         getPage(url)
     }
 })
+

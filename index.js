@@ -21,7 +21,6 @@ const storage = {
         return this.projetos.filter(pr => pr.id === parseInt(idProjeto))[0]
     },
     criarAluno(aluno){
-        console.log(aluno)
         const novoAluno = {id: this.gerarIdAluno(), ...aluno}
         this.alunos.push(novoAluno)
         return novoAluno
