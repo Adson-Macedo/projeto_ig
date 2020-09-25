@@ -139,7 +139,7 @@ const getBotoesProjeto = (projeto) => {
 }
 
 const getBotoesAluno = (idAluno) => {
-    const td = $('<td>').html('<td><div class="btn-acoes"><button class="btn-adicionar"><i class="fa fa-plus"></i></button><button class="btn-remover d-none"><i class="fa fa-close"></i></button></div></td>')
+    const td = $('<td>').html('<div class="btn-acoes"><button class="btn-adicionar"><i class="fa fa-plus"></i></button><button class="btn-remover d-none"><i class="fa fa-close"></i></button></div>')
 
     const btnAdicionar = $(td).find('.btn-adicionar')
     const btnRemover = $(td).find('.btn-remover')

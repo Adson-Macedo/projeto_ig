@@ -3,24 +3,39 @@ const express = require('express')
 const app = express()
 
 const storage = {
-    alunosCont: 1,
+    alunosCont: 2,
     alunos: [
         {   //  mock
             id: 1,
             nome: "Thairam Michel",
-            email: "a@a.a",
-            matricula: "12321312",
+            email: "thairam.michel@aluno.uepb.edu.br",
+            matricula: "000000000",
             idade: 25,
             curso: "Ciencia da Computação"
-        }    
+        },    
+        {   //  mock
+            id: 2,
+            nome: "Adson Macêdo",
+            email: "adson.macedo@aluno.uepb.edu.br",
+            matricula: "111111111",
+            idade: 36,
+            curso: "Ciencia da Computação"
+        },    
     ],
-    projetosCont: 1,
+    projetosCont: 2,
     projetos: [
         {   //mock
             id: 1,
             descricao: "Teste de Software",
             orientador: "Sabrina Souto",
             duracao: 5,
+            alunos: []
+        },    
+        {   //mock
+            id: 2,
+            descricao: "Teste Automation",
+            orientador: "Thairam Michel",
+            duracao: 1,
             alunos: []
         }    
     ],
