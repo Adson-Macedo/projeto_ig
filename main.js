@@ -24,7 +24,7 @@ const configureForm = (form) => {
                 data: getData(),
             }).then( res => {
                 const lista = form.getAttribute('lista')
-                alert('Salvo com Sucesso!')
+                bootbox.alert('Salvo com Sucesso!')
                 getPage(lista)
             }).catch(err => alert('Registro duplicado!'))
 
@@ -148,10 +148,9 @@ const getBotoesAluno = (idAluno) => {
 
         $.post(`/projetos/${idProjeto}/alunos`, {idAluno})
 
-        alert('Aluno Adicionado')
         btnAdicionar.addClass('d-none')
         btnRemover.removeClass('d-none')
-
+        bootbox.alert('Aluno Adicionado')
     })
     
     btnRemover.on('click', () => {
@@ -160,7 +159,7 @@ const getBotoesAluno = (idAluno) => {
 
         btnRemover.addClass('d-none')
         btnAdicionar.removeClass('d-none')
-        alert('Aluno Removido')
+        bootbox.alert('Aluno Removido')
     })
 
     return td

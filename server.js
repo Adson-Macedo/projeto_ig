@@ -76,7 +76,7 @@ const storage = {
         const aluno = this.encontrarAlunoPeloId(idAluno)
         const projeto = this.encontrarProjetoPeloId(idProjeto)
         
-        aluno && projeto && projeto.alunos.pop(aluno)
+        aluno && projeto && delete projeto.alunos.splice(projeto.alunos.indexOf(aluno), 1)
         
         return projeto
     },
